@@ -1,0 +1,18 @@
+{
+    "project_name": "Grip Strength and Frailty in Females",
+    "data_description": {
+      "variables": ["Height (inches)", "Weight (pounds)", "Age (years)", "Grip Strength (kilograms)", "Frailty (qualitative)"],
+      "total_participants": 10,
+      "data_format": "CSV",
+      "location": "/data_clean/data_clean.csv"
+    },
+    "analysis": {
+      "software": ["Python"],
+      "methods": ["Exploratory Data Analysis", "Correlation Analysis"],
+      "primary_findings": "Initial analysis indicates a significant correlation between grip strength and frailty scores among female participants."
+    },
+    "reporting": {
+      "results_location": "/results/results.txt"
+    }
+}
+  
