@@ -23,22 +23,29 @@ def save_table_to_csv(table_data, csv_file_path):
         writer = csv.writer(file)
         writer.writerows(table_data)
 
-docx_file_path = '..\data_raw\Assignment 1.docx'
-csv_file_path = '..\data_raw\data_raw.csv'
+# Set file paths
+base_path = os.getcwd()
+docx_file_path = os.path.join(base_path, 'data_raw/Assignment_1.docx')
+raw_data_file_path = os.path.join(base_path, 'data_raw/data_raw.csv')
+cleaned_data_file_path = os.path.join(base_path, 'data_clean/data_clean.csv')
 
 # Check if CSV file already exists
-if (not os.path.isfile(csv_file_path)):
+if (not os.path.isfile(raw_data_file_path)):
     # Extract table from DOCX file and save to CSV
     table = read_table_from_docx(docx_file_path)
-    save_table_to_csv(table, csv_file_path)
+    save_table_to_csv(table, raw_data_file_path)
 
-data = pd.read_csv(csv_file_path)
+# load data as dataframe
+data = pd.read_csv(raw_data_file_path)
 
+# One-hot encoding
 data['Frailty'] = data['Frailty'].apply(lambda x: 0 if x == 'N' else 1 if x == 'Y' else x)
 
+# Remove rows with missing values
 data.dropna(inplace=True)
 
 # or this
 # data_replaced_na = data_encoded.fillna(data_encoded.mean())
 
-data.to_csv('../data_clean/data_clean.csv', index=False)
+# Save cleaned data to CSV
+data.to_csv(cleaned_data_file_path, index=False)
