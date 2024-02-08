@@ -24,7 +24,7 @@ def save_table_to_csv(table_data, csv_file_path):
         writer.writerows(table_data)
 
 # Set file paths
-base_path = os.getcwd()
+base_path = os.path.join(os.path.dirname(__file__), '..')
 docx_file_path = os.path.join(base_path, 'data_raw/Assignment_1.docx')
 raw_data_file_path = os.path.join(base_path, 'data_raw/data_raw.csv')
 cleaned_data_file_path = os.path.join(base_path, 'data_clean/data_clean.csv')

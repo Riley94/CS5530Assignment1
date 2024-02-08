@@ -4,7 +4,7 @@ from scipy.stats import ttest_ind
 import os
 
 # Set file paths
-base_path = os.getcwd()
+base_path = os.path.join(os.path.dirname(__file__), '..')
 data_path = os.path.join(base_path, 'data_clean/data_clean.csv')
 dist_path = os.path.join(base_path, 'results/distribution.png')
 scatter_path = os.path.join(base_path, 'results/scatter_matrix.png')
