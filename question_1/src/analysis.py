@@ -19,7 +19,7 @@ plt.savefig(scatter_path)
 
 t_scores = pd.DataFrame(columns=['Variable', 'T-Statistic', 'P-Value'])
 
-# Perform t-test on variables of data_no_na
+# Perform t-test
 for column_name in data:
     if column_name != 'Frailty':
         variable = data[column_name]
